@@ -35,7 +35,9 @@ if __name__ == "__main__":
     MP3_INPUT_PATH = PATH + 'PS-2014200192-01-000.mp3'
     MP3_OUTPUT_PATH = PATH + 'PS-2014200192-01-000out.mp3'
     VTT_INPUT_PATH = PATH + 'PS-2014200192-01-000_fixed.vtt'
+    IMAGE_PATH = PATH + '/image/'
 
+    count = 1
     with open(VTT_INPUT_PATH, 'r') as vtt_file:
         vtt_lines = vtt_file.readlines()
         start_time_lines = [time_converter.time_to_second(x.split(' --> ')[0]) for x in vtt_lines if '-->' in x]
@@ -51,9 +53,9 @@ if __name__ == "__main__":
 
             start_sig = int(get_sig_time(sig, sr, start_time))
             end_sig = int(get_sig_time(sig, sr, end_time))
-            print('sig_num : ', sig[start_sig:end_sig].shape)
-            print('num : ', end_sig - start_sig)
+            sig_num = sig[start_sig:end_sig]
 
-    # librosa.display.waveshow(sig, sr)
-    # plt.savefig(PATH + 'savefig_default.png')
+            librosa.display.waveshow(sig_num, sr)
+            plt.savefig(IMAGE_PATH + str(count) + '.png')
+            count += 1
     # slice_mp3(MP3_INPUT_PATH, MP3_OUTPUT_PATH, 5000, 15000)
