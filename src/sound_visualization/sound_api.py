@@ -30,6 +30,10 @@ def get_sig_time(sig, sr, _time):
     return result_time
 
 
+def download_soundbar(input_path):
+    return ''
+
+
 if __name__ == "__main__":
     PATH = '/Users/inzae/Documents/004_data/datacrush_data/sound_test/'
     MP3_INPUT_PATH = PATH + 'PS-2014200192-01-000.mp3'
