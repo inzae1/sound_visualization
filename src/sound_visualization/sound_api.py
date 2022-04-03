@@ -32,6 +32,7 @@ def get_sig_time(sig, sr, _time):
 
 def download_soundbar(input_path):
     y, sr = librosa.load(input_path)
+    duration = y.shape[0] / sr
     return ''
 
 
